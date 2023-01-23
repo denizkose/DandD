@@ -45,3 +45,9 @@
 1. Ввести `Get-WindowsCapability -Online | Where-Object Name -like 'OpenSSH*'`
 2. Ввести `ssh -p '8022' '192.168.1.4'`, где **192.168.1.4** это **ip** вашего телефона/планшета, узнать можно например [здесь](https://www.whatismybrowser.com/detect/what-is-my-local-ip-address) 
 3. Теперь вы можете подключаться к своему серверу на телефоне/планшете из терминала на компьюетере.
+
+## Полезные ссылки
+
+1. [How to Install Foundry on an Android Phone](https://foundryvtt.wiki/en/setup/hosting/Installing-on-Android)
+2. [Get started with OpenSSH for Windows](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse?tabs=powershell)
+3. [Remote Access (Termux SSH)](https://wiki.termux.com/wiki/Remote_Access#SSH)
