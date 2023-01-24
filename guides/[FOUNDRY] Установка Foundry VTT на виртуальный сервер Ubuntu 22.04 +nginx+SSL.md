@@ -158,3 +158,12 @@
 ## Перезапуск NGINX
 
 `sudo systemctl restart nginx`
+
+
+
+## Полезные ссылки
+
+1. [How To Create a Self-Signed SSL Certificate for Nginx in Ubuntu 22.04](https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-nginx-in-ubuntu-22-04)
+2. [How To Install Nginx on Ubuntu 22.04](https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-22-04)
+3. [Ubuntu VM](https://foundryvtt.wiki/en/setup/hosting/Ubuntu-VM)
+4. [Recommended Linux Installation and Usage Guide](https://foundryvtt.wiki/en/setup/linux-installation)
