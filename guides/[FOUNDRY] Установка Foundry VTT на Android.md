@@ -1,5 +1,5 @@
 # Видео
-[![Настройка сервера для Foundry VTT на Android: Пошаговое руководство](https://youtu.be/fXraqq5lp-4)](https://youtu.be/fXraqq5lp-4)
+[![Настройка сервера для Foundry VTT на Android: Пошаговое руководство](https://i.ytimg.com/vi/fXraqq5lp-4/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDNdjYppQGSGLENIe2XGjkCryaMvQ)](https://youtu.be/fXraqq5lp-4)
 
 ## Установка Foundry VTT на Android
 
