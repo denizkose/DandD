@@ -1,3 +1,6 @@
+# Видео
+[![Настройка сервера для Foundry VTT на Android: Пошаговое руководство](https://youtu.be/fXraqq5lp-4)](https://youtu.be/fXraqq5lp-4)
+
 ## Установка Foundry VTT на Android
 
 Друзья, добрый день! Это инструкция, как запустить foundry на вашем смартфоне/планшете.
