@@ -1,3 +1,7 @@
+# Видео
+[![Установка Foundry VTT на виртуальный сервер Ubuntu 22.04 +nginx+SSL](https://i9.ytimg.com/vi/rMPRLyrs1t0/mqdefault.jpg?v=63d04313&sqp=CNSUwZ4G&rs=AOn4CLCgaKDOiIxrJl1U7CzHALCCgtciBQ)](https://youtu.be/rMPRLyrs1t0)
+
+
 ## Обновление системы
 
 `sudo apt-get update`
