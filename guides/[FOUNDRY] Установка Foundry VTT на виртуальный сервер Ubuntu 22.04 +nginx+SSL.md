@@ -1,45 +1,85 @@
+## Обновление системы
+
 `apt update`
+
 `apt upgrade`
 
 `reboot`
 
+## Установка Node.js
+
 `curl -sL https://deb.nodesource.com/setup_18.x | sudo -E bash -`
+
 `sudo apt-get install -y nodejs`
 
 `node --version`
+
 `npm --version`
+
+## Установка unzip
 
 `sudo apt-get install unzip`
 
+## Создание пользователя
+
 `adduser foundry`
+
 `usermod -aG sudo foundry`
+
+## Войти под новым пользователем
+
+`su - foundry`
+
+## Установка PM2
 
 `sudo npm install pm2 -g`
 
+# Установка Founfry
+
+## Создание папок
+
 `mkdir foundryvtt`
+
 `mkdir foundrydata`
+
+## Скачивание архива
 
 `wget -O foundryvtt.zip 'LINK'`
 
+## Распаковка
+
 `unzip foundry.vtt`
+
+## Запуск Foundry
 
 `node $HOME/foundryvtt/resources/app/main.js --dataPath=$HOME/foundrydata`
 
+## Добавление Foundry в PM2
+
 `pm2 start "node $HOME/foundryvtt/resources/app/main.js --dataPath=$HOME/foundrydata" --name foundry`
 
+# Настройка NGINX
+
+## Установка NGINX
 
 `sudo apt-get install nginx`
 
+## Настройка Firewall
+
 `sudo ufw allow 'Nginx Full'`
+
 `sudo ufw status`
+
 `sudo ufw enable`
+
 `systemctl status nginx`
+
+## Создание конфига
 
 `sudo nano /etc/nginx/sites-available/foundry.example.com`
 
 
-`# Define Server
-server {
+``server {``
 
     # Enter your fully qualified domain name or leave blank
     server_name             foundry.example.com www.foundry.example.com;
@@ -65,29 +105,39 @@ server {
         # Make sure to set your Foundry VTT port number
         proxy_pass http://localhost:30000;
     }
-}`
+``}``
+
+## Узнать ip
 
 `curl -4 icanhazip.com`
 
+## "Включить" конфиг
 `sudo ln -s /etc/nginx/sites-available/foundry.example.com /etc/nginx/sites-enabled/`
 
+## Дополнительная настройка
 `sudo nano /etc/nginx/nginx.conf`
 
+Найти и расскомментировать (убрать '#') перед стройчкой:
 
-`...
-http {
-    ...
-    server_names_hash_bucket_size 64;
-    ...
-}
-...`
+`server_names_hash_bucket_size 64;`
+
+## Валидация настроек
 
 `sudo nginx -t`
 
+## Перезапуск NGINX
+
 `sudo systemctl restart nginx`
 
+# Настройка SSL
+
+## Установка certbot
 
 `sudo apt install certbot python3-certbot-nginx`
 
-
+## Создание сертификата для домена
 `sudo certbot --nginx -d foundry.example.com -d www.foundry.example.com`
+
+## Перезапуск NGINX
+
+`sudo systemctl restart nginx`
