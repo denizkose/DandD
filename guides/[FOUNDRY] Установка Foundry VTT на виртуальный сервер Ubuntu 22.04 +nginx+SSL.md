@@ -34,7 +34,7 @@
 
 `sudo npm install pm2 -g`
 
-# Установка Founfry
+# Установка Foundry
 
 ## Создание папок
 
@@ -54,7 +54,17 @@
 
 `node $HOME/foundryvtt/resources/app/main.js --dataPath=$HOME/foundrydata`
 
-## Добавление Foundry в PM2
+# Добавление Foundry в PM2
+
+## Настрйока PM2
+
+`pm2 startup`
+
+#### Скопировать и выполнить команду, которая выдаст команда выше, должно получится что-то вроде этого:
+
+`sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u ubuntu --hp /home/ubuntu`
+
+## Добавить команду запуска Foundry в PM2
 
 `pm2 start "node $HOME/foundryvtt/resources/app/main.js --dataPath=$HOME/foundrydata" --name foundry`
 
