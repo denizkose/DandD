@@ -88,6 +88,7 @@
 
 `sudo nano /etc/nginx/sites-available/foundry.example.com`
 
+## Скопировать и вставить блок ниже
 
 ``server {``
 
@@ -116,6 +117,8 @@
         proxy_pass http://localhost:30000;
     }
 ``}``
+
+Заменить `foundry.example.com` на ваш домен, и заменить `localhost` на ip вашего сервера.
 
 ## Узнать ip
 
