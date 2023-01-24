@@ -1,8 +1,8 @@
 ## Обновление системы
 
-`apt update`
+`sudo apt-get update`
 
-`apt upgrade`
+`sudo apt-get upgrade`
 
 `reboot`
 
