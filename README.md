@@ -1,4 +1,4 @@
-# Deniz-and-the-Dice
+# [Deniz and the Dice](https://www.youtube.com/@deniz_dice)
 
 # Гайды
 
