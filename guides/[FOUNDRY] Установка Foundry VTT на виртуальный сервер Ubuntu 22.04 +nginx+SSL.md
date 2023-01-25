@@ -1,6 +1,21 @@
 # Видео
-[![Установка Foundry VTT на виртуальный сервер Ubuntu 22.04 +nginx+SSL](https://i9.ytimg.com/vi/rMPRLyrs1t0/mqdefault.jpg?v=63d04313&sqp=CNSUwZ4G&rs=AOn4CLCgaKDOiIxrJl1U7CzHALCCgtciBQ)](https://youtu.be/rMPRLyrs1t0)
+[![Установка Foundry VTT на виртуальный сервер Ubuntu 22.04 +nginx+SSL](https://i.ytimg.com/vi/rMPRLyrs1t0/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLC7P2a6R9PDS7jOEWG91WIRWfVxoQ)](https://youtu.be/rMPRLyrs1t0)
 
+## Требуемые технические характеристики к серверу
+
+**Минимальные:**
+* 1 vCPU
+* Место на диске: 1GB
+* 2 GB RAM
+* Firewall и настройки безопасности настроены так, что позволяют игрокам зайти на сервер на необходимый порт.
+
+**Рекомендуемые:**
+* 2 vCPU
+* Место на диске: 1GB
+* 4 GB RAM
+* Firewall и настройки безопасности настроены так, что позволяют игрокам зайти на сервер на необходимый порт.
+
+_Объем памяти, требуемый серверным процессом, зависит от объема данных, включенных в игровую систему и модулей, которые активны в вашем мире. Для более крупных систем или миров, в которых используются более ресурсоемкие модули, потребуется больше оперативной памяти._
 
 ## Обновление системы
 
