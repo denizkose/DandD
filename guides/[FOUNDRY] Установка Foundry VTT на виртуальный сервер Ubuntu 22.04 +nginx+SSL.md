@@ -30,9 +30,19 @@ _Объем памяти, требуемый серверным процессо
 
 ## Установка Node.js
 
-`curl -sL https://deb.nodesource.com/setup_18.x | sudo -E bash -`
+`sudo apt-get install -y ca-certificates curl gnupg`
 
-`sudo apt-get install -y nodejs`
+`sudo mkdir -p /etc/apt/keyrings`
+
+`curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg`
+
+`NODE_MAJOR=21`
+
+`echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list`
+
+`sudo apt-get update`
+
+`sudo apt-get install nodejs -y`
 
 `node --version`
 
@@ -66,15 +76,17 @@ _Объем памяти, требуемый серверным процессо
 
 ## Скачивание архива
 
-`wget -O foundryvtt.zip 'LINK'`
+Для начала надо войти в папку **foundryvtt**
+
+`cd foundryvtt`
+> [!IMPORTANT]
+> Войдите в вашу учетную запись на **https://foundryvtt.com/**, перейти в раздел **Purchased Licenses**, в **Operating System** выбрать **Linux/NodeJS**, затем нажать на кнопку **Timed URL**. В буфер обмена скопируется ссылка.
+
+`wget -O foundry.zip 'ССЫЛКА_КОТОРУЮ_МЫ_ПОЛУЧИЛИ_ВЫШЕ'`
 
 ## Распаковка
 
-`unzip foundry.vtt`
-
-## Запуск Foundry
-
-`node $HOME/foundryvtt/resources/app/main.js --dataPath=$HOME/foundrydata`
+`unzip foundry.zip`
 
 # Добавление Foundry в PM2
 
@@ -82,13 +94,18 @@ _Объем памяти, требуемый серверным процессо
 
 `pm2 startup`
 
-#### Скопировать и выполнить команду, которая выдаст команда выше, должно получится что-то вроде этого:
+#### Скопировать и выполнить строку, которая выдаст команда выше, должно получится что-то вроде этого:
 
 `sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u ubuntu --hp /home/ubuntu`
+
+> [!WARNING]
+> _Не копируйте эту строку, вашу строку вам выдаст комманда выше, это лишь пример_
 
 ## Добавить команду запуска Foundry в PM2
 
 `pm2 start "node $HOME/foundryvtt/resources/app/main.js --dataPath=$HOME/foundrydata" --name foundry`
+
+**СЕРВЕР РАБОТАЕТ, ДАЛЬНЕЙШИЕ НАСТРОЙКИ ОПЦИОНАЛЬНЫ, ЕСЛИ ИМЕЕТСЯ СВОЙ ДОМЕН**
 
 # Настройка NGINX
 
@@ -99,6 +116,10 @@ _Объем памяти, требуемый серверным процессо
 ## Настройка Firewall
 
 `sudo ufw allow 'Nginx Full'`
+
+> [!NOTE]
+> опционально, если еще не сделали это ранее на своем сервере:
+> `sudo ufw allow OpenSSH`
 
 `sudo ufw status`
 
@@ -115,7 +136,7 @@ _Объем памяти, требуемый серверным процессо
 ``server {``
 
     # Enter your fully qualified domain name or leave blank
-    server_name             foundry.example.com www.foundry.example.com;
+    server_name             foundry.example.com www.foundry.example.com; #ВАШИ ДОМЕНЫ
 
     # Listen on port 80 without SSL certificates
     listen                  80;
@@ -140,19 +161,19 @@ _Объем памяти, требуемый серверным процессо
     }
 ``}``
 
-Заменить `foundry.example.com` на ваш домен, и заменить `localhost` на ip вашего сервера.
-
-## Узнать ip
-
-`curl -4 icanhazip.com`
+> [!IMPORTANT]
+> Заменить `foundry.example.com` на ваш домен.
 
 ## "Включить" конфиг
 `sudo ln -s /etc/nginx/sites-available/foundry.example.com /etc/nginx/sites-enabled/`
 
+> [!IMPORTANT]
+> Заменить `foundry.example.com` на ваш домен.
+
 ## Дополнительная настройка
 `sudo nano /etc/nginx/nginx.conf`
 
-Найти и расскомментировать (убрать '#') перед стройчкой:
+Найти и расскомментировать (убрать '#') перед строчкой:
 
 `server_names_hash_bucket_size 64;`
 
@@ -173,6 +194,9 @@ _Объем памяти, требуемый серверным процессо
 ## Создание сертификата для домена
 `sudo certbot --nginx -d foundry.example.com -d www.foundry.example.com`
 
+> [!IMPORTANT]
+> Заменить `foundry.example.com` на ваш домен.
+
 ## Перезапуск NGINX
 
 `sudo systemctl restart nginx`
@@ -182,6 +206,6 @@ _Объем памяти, требуемый серверным процессо
 ## Полезные ссылки
 
 1. [How To Create a Self-Signed SSL Certificate for Nginx in Ubuntu 22.04](https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-nginx-in-ubuntu-22-04)
-2. [How To Install Nginx on Ubuntu 22.04](https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-22-04)
+2. [NodeSource Node.js Binary Distributions | Installation Instructions](https://github.com/nodesource/distributions#installation-instructions)
 3. [Ubuntu VM](https://foundryvtt.wiki/en/setup/hosting/Ubuntu-VM)
 4. [Recommended Linux Installation and Usage Guide](https://foundryvtt.wiki/en/setup/linux-installation)
